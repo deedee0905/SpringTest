@@ -6,7 +6,7 @@ import java.util.Map;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-
+ 
 @Controller
 @RequestMapping("/lesson01/test01")
 public class Hw01Controller {
@@ -14,9 +14,9 @@ public class Hw01Controller {
 	@RequestMapping("/1")
 	@ResponseBody
 	public String testProject() {
+
 		
-		
-		return "테스트 프로젝트 완성 \n해당 프로젝트를 통해서 문제 풀이를 진행합니다.";
+		return "<h2>테스트 프로젝트 완성</h2> <h4>해당 프로젝트를 통해서 문제 풀이를 진행합니다.</h4>";
 		
 	}
 	@RequestMapping("/2")
