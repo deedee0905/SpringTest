@@ -18,8 +18,8 @@
   			,`updatedAt`
   		FROM
   			`Store`;
-  	
-  	
+  			
+  		
   	</select>
   
   

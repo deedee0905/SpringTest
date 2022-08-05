@@ -17,5 +17,11 @@ public class RealEstateBO {
 		return realEstate;
 	}
 	
+	
+	public RealEstate getRentPrice(int rentPrice) {
+		RealEstate rentPrice1 = realEstateDAO.selectRentPrice(rentPrice);
+		return rentPrice1;
+	}
+	
 
 }

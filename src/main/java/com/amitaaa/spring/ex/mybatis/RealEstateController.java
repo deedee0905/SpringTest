@@ -15,13 +15,23 @@ public class RealEstateController {
 	@Autowired
 	private RealEstateBO realEstateBO;
 	
-	@RequestMapping("/lesson3/test/01/1")
+	@RequestMapping("/lesson03/test01/1")
 	@ResponseBody
 	public RealEstate realEstate(@RequestParam("id") int id) {
 		
 		RealEstate realEstate = realEstateBO.getRealEstate(id);
 		return realEstate;
-	
 	}
+	
+	
+	@RequestMapping("/lesson03/test01/2")
+	@ResponseBody
+	public RealEstate rentPrice(@RequestParam("rentPrice") Integer rentPrice) {
+		
+		RealEstate rentprice = realEstateBO.getRentPrice(rentPrice);
+		return rentprice;
+		
+	}
+	
 
 }

@@ -8,7 +8,8 @@
   
   <mapper namespace="com.amitaaa.spring.ex.mybatis.dao.RealEstateDAO">
   
-  	<select id="selectRealEstate" resultType="com.amitaaa.spring.ex.mybatis.model.RealEstate" >
+  	<select id="selectRealEstate" resultType="com.amitaaa.spring.ex.mybatis.model.RealEstate" 
+  	parameterType="int">
   		SELECT
   			`id`
   			, `realtorId`
@@ -22,7 +23,28 @@
   		FROM
   			`real_estate`
   		WHERE
-  			`id` = #{id}
+  			`id` = #{id}	
+  			
+  	
+  	</select>
+  	
+  	
+  	<select id="selectRentPrice" resultType="com.amitaaa.spring.ex.mybatis.model.RealEstate"
+  	parameterType="int">
+  	
+  	SELECT
+  			`id`
+  			,`name`
+  			,`phoneNumber`
+  			,`address`
+  			,`businessNumber`
+  			,`introduce`
+  			,`createdAt`
+  			,
+  		FROM 
+  			`real_estate`
+  		WHERE
+  			`rentPrice` = #{rentPrice}	
   	
   	</select>
   
