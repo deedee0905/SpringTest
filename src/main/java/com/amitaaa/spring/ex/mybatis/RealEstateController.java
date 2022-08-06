@@ -1,5 +1,7 @@
 package com.amitaaa.spring.ex.mybatis;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,12 +12,13 @@ import com.amitaaa.spring.ex.mybatis.bo.RealEstateBO;
 import com.amitaaa.spring.ex.mybatis.model.RealEstate;
 
 @Controller
+@RequestMapping("/lesson03/test01")
 public class RealEstateController {
 	
 	@Autowired
 	private RealEstateBO realEstateBO;
 	
-	@RequestMapping("/lesson03/test01/1")
+	@RequestMapping("/1")
 	@ResponseBody
 	public RealEstate realEstate(@RequestParam("id") int id) {
 		
@@ -24,14 +27,21 @@ public class RealEstateController {
 	}
 	
 	
-	@RequestMapping("/lesson03/test01/2")
+	@RequestMapping("/2")
 	@ResponseBody
-	public RealEstate rentPrice(@RequestParam("rentPrice") Integer rentPrice) {
-		
-		RealEstate rentprice = realEstateBO.getRentPrice(rentPrice);
-		return rentprice;
-		
+	public List<RealEstate> realEstateAsRentPrice(@RequestParam("rentPrice") int rent) {
+		List<RealEstate> realRentPrice = realEstateBO.getRealEstateAsRentPrice(rent);
+		return realRentPrice;
 	}
+	
+	@RequestMapping("/3")
+	@ResponseBody
+	public List<RealEstate> realEstateBothConditions(@RequestParam("area") int area, @RequestParam("price") int price) {
+		List<RealEstate> bothConditions = realEstateBO.getRealEstateBothConditions(area, price);
+		return bothConditions;
+	}
+	
+	
 	
 
 }

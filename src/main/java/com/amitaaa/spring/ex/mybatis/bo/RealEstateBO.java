@@ -1,5 +1,7 @@
 package com.amitaaa.spring.ex.mybatis.bo;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,10 +20,17 @@ public class RealEstateBO {
 	}
 	
 	
-	public RealEstate getRentPrice(int rentPrice) {
-		RealEstate rentPrice1 = realEstateDAO.selectRentPrice(rentPrice);
-		return rentPrice1;
+	public List<RealEstate> getRealEstateAsRentPrice(int rent) {
+		List<RealEstate> realEstateAsRentPrice = realEstateDAO.selectRealEstateAsRentPrice(rent);
+		return realEstateAsRentPrice;
 	}
+	
+	public List<RealEstate> getRealEstateBothConditions(int area, int price) {
+		return realEstateDAO.selectRealEstateBothConditions(area, price);
+	}
+	
+	
+
 	
 
 }

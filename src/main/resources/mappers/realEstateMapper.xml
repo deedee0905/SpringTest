@@ -28,25 +28,49 @@
   	
   	</select>
   	
-  	
-  	<select id="selectRentPrice" resultType="com.amitaaa.spring.ex.mybatis.model.RealEstate"
+  	<select id="selectRealEstateAsRentPrice" resultType="com.amitaaa.spring.ex.mybatis.model.RealEstate"
   	parameterType="int">
-  	
-  	SELECT
+  		SELECT
   			`id`
-  			,`name`
-  			,`phoneNumber`
-  			,`address`
-  			,`businessNumber`
-  			,`introduce`
-  			,`createdAt`
-  			,
-  		FROM 
+  			, `realtorId`
+  			, `address`
+  			, `area`
+  			, `type`
+  			, `price`
+  			, `rentPrice`
+  			, `createdAt`
+  			, `updatedAt`
+  		FROM
   			`real_estate`
   		WHERE
-  			`rentPrice` = #{rentPrice}	
+  			`rentPrice` &lt; #{rentPrice}
   	
   	</select>
+  	
+  	<select id="selectRealEstateBothConditions" resultType="com.amitaaa.spring.ex.mybatis.model.RealEstate"
+  	parameterType="int">
+	  	SELECT
+	  			`id`
+	  			, `realtorId`
+	  			, `address`
+	  			, `area`
+	  			, `type`
+	  			, `price`
+	  			, `rentPrice`
+	  			, `createdAt`
+	  			, `updatedAt`
+	  		FROM
+	  			`real_estate`
+	  		WHERE
+	  			`area` &gt; #{area}
+	  			AND `price` &lt; #{price}
+  	
+  	
+  	</select>
+  	
+  
+  	
+  	
   
   </mapper>
   
