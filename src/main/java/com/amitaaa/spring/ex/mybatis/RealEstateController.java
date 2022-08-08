@@ -41,6 +41,35 @@ public class RealEstateController {
 		return bothConditions;
 	}
 	
+	// 객체로 insert 하기
+	@RequestMapping("/4")
+	@ResponseBody
+	public String realEstateByObject() {
+		
+		int count = realEstateBO.addRealEstateByObject(3, "푸르지용 리버 303동 1104호", 89, "매매", 100000);
+		
+		return "삽입 결과 : " + count ;
+	}
+	
+	
+	//field 로 insert 하기
+	@RequestMapping("/5")
+	@ResponseBody
+	public String realEstateByField() {
+		
+		RealEstate realEstate = new RealEstate();
+		realEstate.setRealtorId(5);
+		realEstate.setAddress("썅떼빌리버 오피스텔 814호");
+		realEstate.setArea(45);
+		realEstate.setType("월세");
+		realEstate.setPrice(100000);
+		realEstate.setRentPrice(120);
+		
+		int count = realEstateBO.addRealEstateByField(realEstate);
+		
+		return "삽입 결과 : " + count;
+	}
+	
 	
 	
 

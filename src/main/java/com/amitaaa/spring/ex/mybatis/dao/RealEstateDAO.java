@@ -15,5 +15,19 @@ public interface RealEstateDAO {
 	public List<RealEstate> selectRealEstateAsRentPrice(@Param("rentPrice") int rent);
 	
 	public List<RealEstate> selectRealEstateBothConditions(@Param("area") int area, @Param("price") int price);
+	
+	public int insertRealEstateByObject(
+			@Param("realtorId") int realtorId
+			, @Param("address") String address
+			, @Param("area") int area
+			, @Param("type") String type
+			, @Param("price") int Price
+			);
+	
+	
+	public int insertRealEstateByField(RealEstate realEstate);
+	public int insertRealEstateByFieldOnlyRealtorId(@Param("realtorId") int realtorId);
+	
+	
 
 }

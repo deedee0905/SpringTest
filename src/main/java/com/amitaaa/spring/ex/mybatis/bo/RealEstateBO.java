@@ -25,11 +25,25 @@ public class RealEstateBO {
 		return realEstateAsRentPrice;
 	}
 	
+	
 	public List<RealEstate> getRealEstateBothConditions(int area, int price) {
 		return realEstateDAO.selectRealEstateBothConditions(area, price);
 	}
 	
+	// 객체로 인서트
+	public int addRealEstateByObject(int realtorId, String address, int area, String type, int price) {
+		return realEstateDAO.insertRealEstateByObject(realtorId, address, area, type, price);
+	}
 	
+	// 필드로 인서트
+	public int addRealEstateByField(RealEstate realEstate) {
+	
+		return realEstateDAO.insertRealEstateByField(realEstate);
+	}
+	
+	public int addRealtorId(int realtorId) {
+		return realEstateDAO.insertRealEstateByFieldOnlyRealtorId(realtorId);
+	}
 
 	
 

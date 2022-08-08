@@ -68,6 +68,66 @@
   	
   	</select>
   	
+  	<insert id="insertRealEstateByObject" parameterType="map">
+  	
+  		INSERT INTO
+  			`real_estate`
+  		(
+  			`realtorId`
+  			, `address`
+  			, `area`
+  			, `type`
+  			, `price`
+  		)
+  		VALUES
+  		(
+  			#{realtorId}
+  			, #{address}
+  			, #{area}
+  			, #{type}
+  			, #{price}
+  		)
+  		
+  	
+  	
+  	</insert>
+  	
+  	<insert id="insertRealEstateByField" parameterType="com.amitaaa.spring.ex.mybatis.model.RealEstate">
+  	
+  		INSERT INTO
+  			`real_estate`
+  		(
+  			`realtorId`
+  			, `address`
+  			, `area`
+  			, `type`
+  			, `price`
+  			, `rentPrice`
+  		)
+  		VALUES
+  		(
+  			#{realtorId}
+  			, #{address}
+  			, #{area}
+  			, #{type}
+  			, #{price}
+  			, #{rentPrice}
+  		)
+  	
+  	
+  	</insert>
+  	
+  	<insert id="insertRealEstateByFieldOnlyRealtorId" parameterType="map">
+  		INSERT INTO
+  			`real_estate`
+  				(`realtorId`)
+  			VALUE
+  			(
+  			#{realtorId}
+  			)
+  		
+  	</insert>
+  	
   
   	
   	
