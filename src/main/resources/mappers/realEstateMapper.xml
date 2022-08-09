@@ -128,6 +128,29 @@
   		
   	</insert>
   	
+  	<update id="update" parameterType="map">
+  		UPDATE
+  			`real_estate`
+  		SET
+  			`type` = #{type}
+  			, `price` = #{price}
+  			, `updatedAt` = now()
+  			
+  		WHERE
+  			`id` = #{id}		
+  	
+  	
+  	
+  	</update>
+  	
+  	<delete id="delete" parameterType="int">
+  		DELETE FROM
+  			`real_estate`
+  		WHERE
+  			`id` = #{id}
+  	
+  	</delete>
+  	
   
   	
   	

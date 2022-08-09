@@ -41,10 +41,14 @@ public class RealEstateBO {
 		return realEstateDAO.insertRealEstateByField(realEstate);
 	}
 	
-	public int addRealtorId(int realtorId) {
-		return realEstateDAO.insertRealEstateByFieldOnlyRealtorId(realtorId);
-	}
 
 	
+	public int updateRealEstate(int id, String type, int price) {
+		return realEstateDAO.update(id, type, price);
+	}
+
+	public int deleteRealEstate(int id) {
+		return realEstateDAO.delete(id);
+	}
 
 }

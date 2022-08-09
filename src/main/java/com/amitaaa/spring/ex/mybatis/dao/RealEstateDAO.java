@@ -26,8 +26,12 @@ public interface RealEstateDAO {
 	
 	
 	public int insertRealEstateByField(RealEstate realEstate);
-	public int insertRealEstateByFieldOnlyRealtorId(@Param("realtorId") int realtorId);
 	
+	public int update(@Param("id") int id,
+			@Param("type") String type ,
+			@Param("price") int price);
+	
+	public int delete(@Param("id") int id);
 	
 
 }
