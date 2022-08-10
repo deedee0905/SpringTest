@@ -13,14 +13,14 @@ import com.amitaaa.spring.ex.jsp.bo.MarketBO;
 import com.amitaaa.spring.ex.jsp.model.Market;
 
 @Controller
-@RequestMapping("jsp/market")
+@RequestMapping("lesson04/test01")
 public class MarketController {
 
 	@Autowired
 	private MarketBO marketBO;
 	
 	// 셀러 추가등록
-	@PostMapping("/add")
+	@PostMapping("/01")
 	@ResponseBody
 	public String addSeller(
 			@RequestParam("nickname") String nickname
@@ -33,23 +33,31 @@ public class MarketController {
 		
 	}
 	
-	@GetMapping("/input")
+	@GetMapping("/add_seller")
 	public String sellerInput() {
 		return "jsp/seller";
 		
 	}
 	
 	// 셀러 출력
-	@GetMapping("/lastSeller")
-	public String getSeller(Model market) {
+	@GetMapping("/seller_info")
+	public String getSeller(Model market, @RequestParam("id") int id) {
 		
-//		Market sellerId = marketBO.getSellerId();
-//		
-//		market.addAttribute("profileImage", sellerId);
-//		market.addAttribute("nickname", sellerId);
-//		market.addAttribute("temperature", sellerId);
 		
-		return "jsp/sellerInfo";
+		Market sellerId = marketBO.getSellerId();
+		
+		market.addAttribute("market", sellerId);
+		
+		int idNumber = (Integer) id;
+		
+		if(idNumber == 3) {
+			return "jsp/idNotFound";
+		} else {
+			return "jsp/sellerInfo";
+		}
+		
+		
+		
 	}
 	
 	

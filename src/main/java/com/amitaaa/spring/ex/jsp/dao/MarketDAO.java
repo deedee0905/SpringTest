@@ -9,6 +9,7 @@ import com.amitaaa.spring.ex.jsp.model.Market;
 public interface MarketDAO {
 	
 	public int insertSeller(
+			
 			@Param("nickname") String nickname
 			, @Param("profileImage") String profileImage
 			, @Param("temperature") double temperature

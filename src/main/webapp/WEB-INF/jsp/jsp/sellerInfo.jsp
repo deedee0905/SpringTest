@@ -15,9 +15,10 @@
 <body>
 	<div class="container">
 	<h1>판매자 정보</h1>
-	<img src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA1MjdfMjk2%2FMDAxNjUzNjQwODk5Nzc4.x-FJz52d7i8bX431E2i_misGaDDA66_dxb-9gwo0lAIg.9z0LNZWcP7rfiLU7r84cHALvJvYrOrCmd6dyIiMOhFAg.JPEG.diiob%2FIMG_7475.jpg&type=sc960_832" width="200"> <br>
-	<div class="display-4">다팔아</div>
-	<h2 class="text-warning">36.5</h2>
+	<img src="${market.profileImage}" width="150"> <br>
+	<div class="display-4">${market.nickname}</div>
+	<h2 class="text-warning">${market.temperature}</h2>
+	
 	
 	</div>
 

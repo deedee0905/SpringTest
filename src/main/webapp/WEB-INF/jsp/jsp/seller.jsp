@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div class="container">
-		<form method="post" action="/jsp/market/add">
+		<form method="post" action="/lesson04/test01/1">
 			<h1>판매자 추가</h1>
 			<label>닉네임</label>
 			<input name="nickname" type="text" class="form-control col-3"> <br>

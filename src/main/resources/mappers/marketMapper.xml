@@ -29,6 +29,9 @@
   	</insert>
   	
   	<select id="selectSeller" resultType="com.amitaaa.spring.ex.jsp.model.Market">
+  		
+  		
+  		<!-- 2번 문제 seller 출력
   		SELECT
   			`id`
   			,`nickname`
@@ -41,6 +44,20 @@
   		ORDER BY
   			`id` DESC
   		LIMIT 1
+  		
+  		 -->
+  		 
+  		 SELECT
+  			`id`
+  			,`nickname`
+  			,`profileImage`
+  			,`temperature`
+  			,`createdAt`
+  			,`updatedAt`
+  		FROM
+  			`seller`
+  		LIMIT 1
+  		 
   		
   	
   	</select>
