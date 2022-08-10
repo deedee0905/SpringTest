@@ -15,6 +15,7 @@ public interface MarketDAO {
 			, @Param("temperature") double temperature
 			);
 	
-	public Market selectSeller();
+	public Market selectSeller(
+			@Param("id") int id);
 
 }

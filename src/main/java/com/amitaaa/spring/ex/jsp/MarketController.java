@@ -44,7 +44,7 @@ public class MarketController {
 	public String getSeller(Model market, @RequestParam("id") int id) {
 		
 		
-		Market sellerId = marketBO.getSellerId();
+		Market sellerId = marketBO.getSellerId(id);
 		
 		market.addAttribute("market", sellerId);
 		

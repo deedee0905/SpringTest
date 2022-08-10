@@ -17,8 +17,8 @@ public class MarketBO {
 	}
 	
 	// 셀러 출력
-	public Market getSellerId() {
-		return marketDAO.selectSeller();
+	public Market getSellerId(int id) {
+		return marketDAO.selectSeller(id);
 	}
 	
 
