@@ -37,10 +37,42 @@
 					<td><fmt:formatNumber value="${candidates / 1000000}" type="percent" /></td>
 				</tr>
 				</c:forEach>
-			</tbody>
+			</tbody>	
+		</table>
+		
+		<br>
+		<hr>
+		<br>
+		
+		<h1> 2.카드 명세서</h1>
+		<table class="table text-center">
+			<thead>
+				<tr>
+					<th>사용처</th>
+					<th>가격</th>
+					<th>사용 날짜</th>
+					<th>할부</th>
+				</tr>
+			</thead>
 			
+			<tbody>
+				<c:forEach var="bills" items="${myBills }" > 
+				<tr>
+					<td>${bills.store }</td>
+					<td><fmt:formatNumber value="${bills.pay }" type="currency" /></td>
+					<td><fmt:parseDate value="${bills.date }" pattren="yyyy년 MM월 dd일" /></td>
+					<td>${bills.installment }</td>
+				</tr>
+				</c:forEach>
+			</tbody>
+		
 		
 		</table>
+			
+		
+		
+		
+		
 	</div>
 	
 
