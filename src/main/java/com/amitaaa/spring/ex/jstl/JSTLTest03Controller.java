@@ -51,6 +51,7 @@ public class JSTLTest03Controller {
 		cardBills.add(cardBill);
 		
 		model.addAttribute("myBills", cardBills);
+		
 	
 		return "jstl/tst03";
 	}

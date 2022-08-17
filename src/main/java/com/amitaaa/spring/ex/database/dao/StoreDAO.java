@@ -14,5 +14,4 @@ public interface StoreDAO {
 	
 	public List<Store> selectStoreList();
 	
-
 }
