@@ -45,7 +45,7 @@
 	
 	      <section class="p-1 ml-1">
 	        <div>
-	          <h3>과거날씨</h2>
+	          <h2>과거날씨</h2>
 	
 	            <table class="table text-center">
 	              <thead>
@@ -62,12 +62,36 @@
 	              <tbody>
 	                <tr>
 	               	<c:forEach var="weather" items="${pastWeatherList }">
-	                  <td>${weather.date } </td>
-	                  <td>${weather.weather } </td>
-	                  <td>${weather.temperatures } </td>
-	                  <td> ${weather.precipitation } </td>
+	               	<fmt:parseDate value="${weather.date })" pattern="yyyy-MM-dd" var="weatherDate" />
+	                  <td><fmt:formatDate value="${weatherDate }" pattern="yyyy년 M월 d일"/></td>
+	                  
+	                  <c:choose>
+	                  
+	                  	<c:when test="${weather.weather eq '비' }"> 
+	                  		<td><img src="http://marondal.com/material/images/dulumary/web/jstl/rainy.jpg"></td>
+	                  	</c:when>
+	                  	
+	                  	
+	                  	<c:when test="${weather.weather eq '흐림' }"> 
+	                  		<td><img src="http://marondal.com/material/images/dulumary/web/jstl/cloudy.jpg"></td>
+	                  	</c:when>
+	                  	
+	                  	
+	                  	<c:when test="${weather.weather eq '구름조금' }">
+	                  		<td><img src="http://marondal.com/material/images/dulumary/web/jstl/partlyCloudy.jpg"></td>
+	                  	</c:when>
+	                  	
+	                  	
+	                  	<c:when test="${weather.weather eq '맑음' }">
+	                  		<td><img src="http://marondal.com/material/images/dulumary/web/jstl/sunny.jpg"></td>
+	                  	</c:when>
+	                  	
+	             	  </c:choose>     
+	                  
+	                  <td>${weather.temperatures }℃ </td>
+	                  <td> ${weather.precipitation }mm </td>
 	                  <td>${weather.microDust } </td>
-	                  <td>${weather.windSpeed } </td>
+	                  <td>${weather.windSpeed }km/h </td>
 	                </tr>
 	                </c:forEach>
 	
@@ -82,8 +106,11 @@
 	    <footer class="d-flex">
 	      <div class="m-3"><img  width="180" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fimgnews.naver.net%2Fimage%2F5669%2F2022%2F07%2F05%2F0000044371_001_20220705041004029.jpg&type=sc960_832"></div>
 	      <div>
-	        <h5 class="p-2 mt-3 text-secondary"> (07062)서울시 동작구 여의대방로 16길 61</h5>
-	        <h5 class="p-2 text-secondary"> Copyright © KMA. ALL Rights RESERVED  2021 </h5>
+	        <div class="p-2 mt-3 text-secondary"> 
+		        (07062)서울시 동작구 여의대방로 16길 61 <br>
+		        Copyright © KMA. ALL Rights RESERVED  2021
+	        </div>
+	        
 	      </div>
 	    </footer>
 
