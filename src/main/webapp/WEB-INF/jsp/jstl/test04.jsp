@@ -35,6 +35,7 @@
 			<tbody>
 				<tr>
 				<c:forEach var="members" items="${kingdoms }" varStatus="status">
+				
 					<td>${status.count }</td>
 					
 					<td>${members.name }</td>

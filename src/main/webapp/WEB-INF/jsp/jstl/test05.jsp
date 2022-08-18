@@ -14,6 +14,9 @@
 
 <meta charset="UTF-8">
 <title>날씨 정보 페이지</title>
+
+
+
 </head>
 <body>
 
@@ -61,9 +64,9 @@
 	
 	              <tbody>
 	                <tr>
-	               	<c:forEach var="weather" items="${pastWeatherList }">
+	               	<c:forEach var="weather" items="${weatherHistory }">
 	               	<fmt:parseDate value="${weather.date })" pattern="yyyy-MM-dd" var="weatherDate" />
-	                  <td><fmt:formatDate value="${weatherDate }" pattern="yyyy년 M월 d일"/></td>
+	                  <td><fmt:formatDate value="${weatherDate }" pattern="yyyy년 MM월 dd일"/></td>
 	                  
 	                  <c:choose>
 	                  
