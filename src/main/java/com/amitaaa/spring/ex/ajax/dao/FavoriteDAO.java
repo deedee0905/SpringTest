@@ -16,5 +16,9 @@ public interface FavoriteDAO {
 			@Param("name") String name
 			,@Param("url") String url
 			);
+	
+	// 이메일 중복 api DAO
+	public int selectCountEmail(@Param("url") String url);
+
 
 }

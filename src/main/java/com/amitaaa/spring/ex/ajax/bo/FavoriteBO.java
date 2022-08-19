@@ -21,5 +21,18 @@ public class FavoriteBO {
 	public int addlinks(String name, String url) {
 		return favoriteDAO.insertLink(name, url);
 	}
+	
+	// email 중복여부 알려주는 BO
+	public boolean isDuplicateEmail(String url) {
+		
+		int count = favoriteDAO.selectCountEmail(url);
+	
+		if(count == 0) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
 
 }

@@ -8,8 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.amitaaa.spring.ex.ajax.bo.FavoriteBO;
 import com.amitaaa.spring.ex.ajax.model.Favorite;
@@ -26,6 +28,7 @@ public class Ajax01Controller {
 		return "ajax/linkInput";
 	}
 	
+	
 	@GetMapping("/linkTables")
 	public String linkTable(Model model) {
 		
@@ -38,7 +41,8 @@ public class Ajax01Controller {
 		
 	}
 	
-	@GetMapping("/add")
+	@PostMapping("/add")
+	@ResponseBody
 	public Map<String, String> addLink(
 			@RequestParam("name") String name
 			, @RequestParam("url") String url
@@ -54,6 +58,23 @@ public class Ajax01Controller {
 			map.put("result", "fail");
 		}
 		
+		return map;
+	}
+	
+	// email 중복검사 api
+	
+	@GetMapping("/is_duplicate")
+	public Map<String, Boolean> isDuplicate(@RequestParam("url") String url) {
+		
+		boolean isDuplicate = favoriteBO.isDuplicateEmail(url);
+		// {"is_duplicate":true} or {"is_duplicate":false}
+		
+		Map<String, Boolean> map = new HashMap<>();
+		if(isDuplicate) {
+			map.put("is_duplicate", true);
+		} else {
+			map.put("is_duplicate", false);
+		}
 		return map;
 	}
 	
