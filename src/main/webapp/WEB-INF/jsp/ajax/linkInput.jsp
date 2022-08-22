@@ -44,8 +44,8 @@
 				<button type="button" id="checkBtn" class="ml-3 btn btn-info">중복확인</button>
 			</div>
 		</div>
-		<label class="text-danger" id="duplicateUrl">중복된 url 입니다.</label>
-		<label class="text-danger" id="availableUrl">사용 가능한 url 입니다.</label>
+		<label class="text-danger small" id="duplicateUrl">중복된 url 입니다.</label>
+		<label class="text-success small" id="availableUrl">사용 가능한 url 입니다.</label>
 		<button type="button" id="saveBtn" class="btn btn-success form-control mt-2">추가</button>
 	
 	</div>
@@ -57,6 +57,17 @@
 			var isCheck = false;
 			
 			var isDuplicate = true;
+			
+			$("#urlInput").on("input", function() {
+				// 중복체크 확인 상태를 초기화
+				isCheck = false;
+				isDuplicate = true;
+				
+				$("#duplicateUrl").hide();
+				$("#availableUrl").hide();
+				
+			});
+			
 			
 			// 중복확인버튼 이벤트
 			$("#checkBtn").on("click", function(){
@@ -73,7 +84,7 @@
 				
 				
 				$.ajax({
-					type:"get"
+					type:"post"
 					, url:"/ajax/favorite/is_duplicate"
 					, data:{"url":url}
 					, success:function(data){

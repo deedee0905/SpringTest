@@ -64,7 +64,7 @@ public class Ajax01Controller {
 	
 	// url 중복검사 api
 	
-	@GetMapping("/is_duplicate")
+	@PostMapping("/is_duplicate")
 	@ResponseBody
 	public Map<String, Boolean> isDuplicate(@RequestParam("url") String url) {
 		
@@ -81,9 +81,11 @@ public class Ajax01Controller {
 	}
 	
 	
-	// 데이터 delete 기능 api 구현
+	// id를 기반으로 데이터를 delete 기능 api 구현
 	@GetMapping("/delete")
+	@ResponseBody
 	public Map<String, String> deleteLink(@RequestParam("id") int id) {
+		// {"result":"success"} {"result":"fail"}
 		int count = favoriteBO.deleteLinkBO(id);
 		
 		Map<String, String> map = new HashMap<>();

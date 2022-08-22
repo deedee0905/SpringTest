@@ -46,7 +46,7 @@
   	
   	</select>
   	
-  	<delete id="deleteUrl" parameterType="map">
+  	<delete id="deleteUrl" parameterType="int">
   		DELETE
   		FROM
   			`favorite`

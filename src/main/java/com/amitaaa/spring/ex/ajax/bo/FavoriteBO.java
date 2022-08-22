@@ -33,6 +33,8 @@ public class FavoriteBO {
 			return true;
 		}
 		
+		// return count != 0; (이렇게도 줄일 수 있다.)
+		
 	}
 	
 	// 즐겨찾기 delete BO
