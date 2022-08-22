@@ -19,6 +19,11 @@ public interface FavoriteDAO {
 	
 	// 이메일 중복 api DAO
 	public int selectCountEmail(@Param("url") String url);
+	
+	// 즐겨찾기 delete DAO
+	public int deleteUrl(@Param("id") int id);
+
+	
 
 
 }

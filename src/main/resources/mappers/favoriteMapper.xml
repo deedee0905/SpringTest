@@ -45,6 +45,15 @@
   			`url` = #{url}
   	
   	</select>
+  	
+  	<delete id="deleteUrl" parameterType="map">
+  		DELETE
+  		FROM
+  			`favorite`
+  		WHERE
+  			`id` = #{id}
+  	
+  	</delete>
   
   
   </mapper>

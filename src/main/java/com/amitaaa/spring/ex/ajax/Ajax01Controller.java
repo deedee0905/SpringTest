@@ -23,6 +23,7 @@ public class Ajax01Controller {
 	@Autowired
 	private FavoriteBO favoriteBO;
 	
+	
 	@GetMapping("/input")
 	public String linkInput() {
 		return "ajax/linkInput";
@@ -78,6 +79,26 @@ public class Ajax01Controller {
 		}
 		return map;
 	}
+	
+	
+	// 데이터 delete 기능 api 구현
+	@GetMapping("/delete")
+	public Map<String, String> deleteLink(@RequestParam("id") int id) {
+		int count = favoriteBO.deleteLinkBO(id);
+		
+		Map<String, String> map = new HashMap<>();
+		
+		if(count == 1) {
+			map.put("result", "success");
+		} else {
+			map.put("result", "fail");
+		}
+		
+		return map;
+		
+		
+	}
+	
 	
 	
 }

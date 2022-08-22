@@ -54,8 +54,14 @@
 	<script>
 		$("#document").ready(function() {
 			
+			var isCheck = false;
+			
+			var isDuplicate = true;
+			
 			// 중복확인버튼 이벤트
 			$("#checkBtn").on("click", function(){
+				
+				
 				
 				let url = $("#urlInput").val();
 				
@@ -63,6 +69,8 @@
 					alert("주소를 입력하세요.");
 					return;
 				}
+				
+				
 				
 				$.ajax({
 					type:"get"
@@ -72,16 +80,19 @@
 						if(data.is_duplicate){
 							$("#duplicateUrl").show();
 							$("#availableUrl").hide();
+							isCheck = true;
 						} else{
 							$("#availableUrl").show();
 							$("#duplicateUrl").hide();
+							isCheck = true;
+							isDuplicate = false;
 						}
 					}
 					,error:function(){
 						alert("중복 확인 에러");
 					}
 					
-				})
+				});
 				
 				
 			});
@@ -110,6 +121,21 @@
 					return;
 				} 
 				
+				
+				// 중복체크 했는지?
+				if(isCheck == false) {
+					alert("중복 체크를 확인하세요.");
+					return;
+				}	
+					
+						
+				// 중복 여부
+				if(isDuplicate == true) {
+					alert("중복되었습니다");
+					return;
+				}	
+				
+				
 				// api 호출
 				// ajax 사용
 				$.ajax({
@@ -117,7 +143,7 @@
 					, url:"/ajax/favorite/add"
 					, data:{"name":name, "url":url}
 					, success:function(data) {
-						if(data.result == "success"){
+						if(data.result == "success" && isDuplicate == false && isCheck == true){
 							location.href="/ajax/favorite/linkTables";
 						} else {
 							alert("저장 실패");
@@ -127,7 +153,7 @@
 					, error:function() {
 						alert("에러 발생")
 					}
-				})
+				});
 				
 				
 				

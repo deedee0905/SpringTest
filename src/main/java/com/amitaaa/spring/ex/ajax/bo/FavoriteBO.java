@@ -34,5 +34,12 @@ public class FavoriteBO {
 		}
 		
 	}
+	
+	// 즐겨찾기 delete BO
+	public int deleteLinkBO(int id) {
+		return favoriteDAO.deleteUrl(id);
+	}
+	
+	
 
 }

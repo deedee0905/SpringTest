@@ -18,12 +18,13 @@
 	<div class="container">
 		<h1>즐겨찾기 목록</h1>
 		
-		<table class="table text-center">
-			<thead>
+		<table class="table ">
+			<thead class="text-left">
 				<tr>
 					<th>No.</th>
 					<th>이름</th>
 					<th>주소</th>
+					<th></th>
 				</tr>
 			</thead>
 			
@@ -33,6 +34,7 @@
 					<td>${status.count }</td>
 					<td>${linkList.name }</td>
 					<td>${linkList.url }</td>
+					<td><button class="btn btn-danger btn-sm deleteBtn" value="${linkList.id }">삭제</button></td>
 				</tr>
 				</c:forEach>
 				
@@ -41,6 +43,42 @@
 		</table>
 	</div>
 
+
+<script>
+
+	$(document).ready(function() {
+		
+		// 삭제 버튼 눌렀을 때 이벤트
+		$(".deleteBtn").on("click",function() {
+			let idNumber = $(this).val();
+			
+			$.ajax({
+				type:"get"
+				, url:"/ajax/favorite/delete"
+				, data:{"id":id}
+				, success:function(data){
+					if(data.result == "success" && idNumber = id){
+						location.href="/ajax/favorite/linkTables";
+					} else{
+						alert("삭제 실패");
+					}
+				}
+				, error:function(){
+					alert("에러 발생");
+				}
+				
+			});
+				
+			
+		
+			
+			
+			
+		});
+		
+	});
+
+</script>
 
 </body>
 </html>
