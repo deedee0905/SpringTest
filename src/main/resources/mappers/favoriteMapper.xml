@@ -36,12 +36,12 @@
   		)
   	</insert>
   	
-  	<select id="selectCountEmail" parameterType="String" resultType="int">
+  	<select id="selectCountEmail" parameterType="string" resultType="int">
   		SELECT
   			count(1)
   		FROM
   			`favorite`
-  		WHERER
+  		WHERE
   			`url` = #{url}
   	
   	</select>

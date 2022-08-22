@@ -4,16 +4,25 @@
 <html>
 <head>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<Style>
+	#duplicateUrl {
+	display : none;
+	}
+	
+	#availableUrl {
+	display : none;
+	}
+
+</Style>
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -35,7 +44,8 @@
 				<button type="button" id="checkBtn" class="ml-3 btn btn-info">중복확인</button>
 			</div>
 		</div>
-		
+		<label class="text-danger" id="duplicateUrl">중복된 url 입니다.</label>
+		<label class="text-danger" id="availableUrl">사용 가능한 url 입니다.</label>
 		<button type="button" id="saveBtn" class="btn btn-success form-control mt-2">추가</button>
 	
 	</div>
@@ -60,9 +70,11 @@
 					, data:{"url":url}
 					, success:function(data){
 						if(data.is_duplicate){
-							alert("중복되었습니다.");
+							$("#duplicateUrl").show();
+							$("#availableUrl").hide();
 						} else{
-							alert("사용가능합니다.");
+							$("#availableUrl").show();
+							$("#duplicateUrl").hide();
 						}
 					}
 					,error:function(){

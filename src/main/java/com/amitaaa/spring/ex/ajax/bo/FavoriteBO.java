@@ -28,9 +28,9 @@ public class FavoriteBO {
 		int count = favoriteDAO.selectCountEmail(url);
 	
 		if(count == 0) {
-			return true;
-		} else {
 			return false;
+		} else {
+			return true;
 		}
 		
 	}

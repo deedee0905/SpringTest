@@ -61,9 +61,10 @@ public class Ajax01Controller {
 		return map;
 	}
 	
-	// email 중복검사 api
+	// url 중복검사 api
 	
 	@GetMapping("/is_duplicate")
+	@ResponseBody
 	public Map<String, Boolean> isDuplicate(@RequestParam("url") String url) {
 		
 		boolean isDuplicate = favoriteBO.isDuplicateEmail(url);
