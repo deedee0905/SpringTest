@@ -17,11 +17,14 @@ public interface PensionDAO {
 	//예약추가
 	public int insertBooking(
 			@Param("name") String name
-			,@Param("date") Date date
+			,@Param("date") String date
 			,@Param("day") int day
 			,@Param("headcount") int headcount
 			,@Param("phoneNumber") String phoneNumber
+			,@Param("state") String state
 			);
+	
+	public int deleteBooking(@Param("id") int id);
 	
 	
 }

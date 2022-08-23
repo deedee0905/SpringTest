@@ -23,14 +23,19 @@ public class PensionBO {
 	// 예약 추가하기
 	public int addBooking(
 			String name
-			, Date date
+			, String date
 			, int day
 			, int headcount
 			, String phoneNumber
 			) {
 		
-		return pensionDAO.insertBooking(name, date, day, headcount, phoneNumber);
+		return pensionDAO.insertBooking(name, date, day, headcount, phoneNumber, "대기중");
 		
 	}
+	
+	public int deleteBooking(int id) {
+		return pensionDAO.deleteBooking(id);
+	}
+	
 	
 }

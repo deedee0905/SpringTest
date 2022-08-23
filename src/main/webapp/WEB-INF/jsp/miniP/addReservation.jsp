@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,6 +98,7 @@
 				<input type="text" class="form-control" name="date" id="testDatepicker">
 			</div>
 			
+			
 			<div class="mt-2">
 				<label>숙박일수</label>
 				<input type="text" class="form-control" name="day" id="dayInput">
@@ -138,11 +140,20 @@
 			});
 			
 			$("#bookingBtn").on("click", function() {
+				// 사용자가 입력한 값을 api로 데이터를 저장한다.
 				let name = $("#nameInput").val();
 				let date = $("#testDatepicker").val(); 
 				let day = $("#dayInput").val();
 				let headcount = $("#headcountInput").val();
 				let phoneNumber = $("#phoneNumberInput").val();
+				
+				// 유효성 검사
+				// 입력 내용이 모두 있는지
+
+				
+				//숙박일수, 인원수 숫자가 아닌 값이 있는지
+				
+				
 				
 				if(name == ""){
 					alert("이름을 입력하세요");
@@ -174,11 +185,11 @@
 						if(data.result == "success"){
 							location.href = "/mini/tables";
 						} else {
-							alert("저장 실패");
+							alert("예약 실패");
 						}
 						}
 					, error:function() {
-						alert("저장 에러");
+						alert("예약 에러");
 					}
 				});
 				

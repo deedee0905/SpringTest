@@ -1,6 +1,5 @@
 package com.amitaaa.spring.ex.miniP;
 
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,12 +48,12 @@ public class PensionController {
 		return "miniP/addReservation";
 	}
 	
-	// 예약 페이지
+	// 데이터를 전달 받고 db에 저장하는 api
 	@GetMapping("/add")
 	@ResponseBody
 	public Map<String, String> addReservation(
 			@RequestParam("name") String name
-			, @RequestParam("date") Date date
+			, @RequestParam("date") String date // 2022-08-22
 			, @RequestParam("day") int day
 			, @RequestParam("headcount") int headcount
 			, @RequestParam("phoneNumber") String phoneNumber
@@ -72,6 +71,30 @@ public class PensionController {
 		
 		return map;
 	}
+	
+	// id로 예약 정보를 삭제하는 api
+	// {"result":"success"} {"result":"fail"}
+	@GetMapping("/delete")
+	@ResponseBody
+	public Map<String, String> deleteBooking(@RequestParam("id") int id){
+		
+		int count = pensionBO.deleteBooking(id);
+		
+		Map<String, String> map = new HashMap<>();
+		
+		if(count == 1) {
+			// 삭제 성공
+			map.put("result", "success");
+		} else {
+			// 삭제 실패
+			map.put("result", "fail");
+		}
+		
+		return map;
+		
+	}
+	
+	
 	
 
 }

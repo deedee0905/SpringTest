@@ -93,7 +93,7 @@
 					<c:forEach var="reservation" items="${booking }">
 					<tr>
 						<td>${reservation.name }</td>
-						<td><fmt:formatDate value="${reservation.date }" pattern="yyyy년 MM월 dd일" /></td>
+						<td><fmt:formatDate value="${reservation.date }" pattern="yyyy년 M월 d일" /></td>
 						<td>${reservation.day }</td>
 						<td>${reservation.headcount }</td>
 						<td>${reservation.phoneNumber }</td>
@@ -106,9 +106,14 @@
 							<c:when test="${reservation.state eq '확정' }">
 								<td class="text-success">${reservation.state }</td>
 							</c:when>
+							
+							<c:otherwise>
+								<td>${reservation.state }</td>
+							</c:otherwise>
+							
 						</c:choose>
 					
-						<td><button type="button" class="btn btn-danger btn-sm">삭제</button></td>
+						<td><button type="button" class="btn btn-danger btn-sm delete-btn" data-booking-id="${reservation.id }">삭제</button></td>
 						
 					</tr>
 					</c:forEach>
@@ -130,6 +135,34 @@
 		
 	</div>
 	
+	<script>
+		$(document).ready(function() {
+			
+			$(".delete-btn").on("click", function() {
+				let bookingId = $(this).data("booking-id");
+				
+				$.ajax({
+					type:
+					, url:"/mini/delete"
+					, data:{"id":bookingId}
+					, success:function(data) {
+						if(data.result == "success"){
+							location.reload();
+						} else {
+							alert("삭제 실패");
+						}
+					}
+					, error:function() {
+						alert("삭제 에러");
+					}
+					
+				});
+				
+			});
+			
+		});
+	
+	</script>
 
 
 </body>
