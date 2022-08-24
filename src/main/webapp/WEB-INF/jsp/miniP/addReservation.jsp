@@ -135,9 +135,6 @@
 	
 		$(document).ready(function(){
 			
-			$(function() {
-				$("#testDatepicker").datepicker({});
-			});
 			
 			$("#bookingBtn").on("click", function() {
 				// 사용자가 입력한 값을 api로 데이터를 저장한다.
@@ -157,22 +154,27 @@
 				
 				if(name == ""){
 					alert("이름을 입력하세요");
+					return;
 				}
 				
 				if(date == ""){
 					alert("예약날짜를 입력하세요");
+					return;
 				}
 				
 				if(day == ""){
 					alert("숙박일수를 입력하세요");
+					return;
 				}
 				
 				if(headcount == ""){
 					alert("숙박인원을 입력하세요");
+					return;
 				}
 				
 				if(phoneNumber == ""){
 					alert("전화번호를 입력하세요");
+					return;
 				}
 				
 				

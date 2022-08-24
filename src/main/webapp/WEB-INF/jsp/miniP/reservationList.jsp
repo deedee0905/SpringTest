@@ -142,7 +142,7 @@
 				let bookingId = $(this).data("booking-id");
 				
 				$.ajax({
-					type:
+					type:"get"
 					, url:"/mini/delete"
 					, data:{"id":bookingId}
 					, success:function(data) {
@@ -152,7 +152,7 @@
 							alert("삭제 실패");
 						}
 					}
-					, error:function() {
+					,error:function() {
 						alert("삭제 에러");
 					}
 					
