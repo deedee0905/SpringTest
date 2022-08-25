@@ -69,8 +69,8 @@
 			<ul class="nav nav-fill ul-nav">
 				<li class="nav-item"><a class="nav-link text-white" href="#">팬션소개</a></li>
 				<li class="nav-item"><a class="nav-link text-white" href="#">객실보기</a></li>
-				<li class="nav-item"><a class="nav-link text-white" href="#">예약하기</a></li>
-				<li class="nav-item"><a class="nav-link text-white" href="#">예약목록</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="http://localhost:8080/mini/input">예약하기</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="http://localhost:8080/mini/tables">예약목록</a></li>
 			</ul>
 		</nav>
 		

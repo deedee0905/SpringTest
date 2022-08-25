@@ -80,8 +80,8 @@
 			<ul class="nav nav-fill ul-nav">
 				<li class="nav-item"><a class="nav-link text-white" href="#">팬션소개</a></li>
 				<li class="nav-item"><a class="nav-link text-white" href="#">객실보기</a></li>
-				<li class="nav-item"><a class="nav-link text-white" href="#">예약하기</a></li>
-				<li class="nav-item"><a class="nav-link text-white" href="#">예약목록</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="http://localhost:8080/mini/input">예약하기</a></li>
+				<li class="nav-item"><a class="nav-link text-white" href="http://localhost:8080/mini/tables">예약목록</a></li>
 			</ul>
 		</nav>
 		
@@ -162,14 +162,24 @@
 					return;
 				}
 				
-				if(day == ""){
+				if(day == "" ){
 					alert("숙박일수를 입력하세요");
+					return;
+				}
+				
+				// 숙박일수가 숫자로만 표현되었는지 (NaN : Not a Number) 이 조건이  true면 숫자가 아닌 상태
+				if(isNaN(day)){
+					alert("숙박일수는 숫자만 입력 가능합니다.");
 					return;
 				}
 				
 				if(headcount == ""){
 					alert("숙박인원을 입력하세요");
 					return;
+				}
+				
+				if(isNaN(headcount)){
+					alert("숙박인원은 숫자만 입력 가능합니다.");
 				}
 				
 				if(phoneNumber == ""){
@@ -188,7 +198,7 @@
 							location.href = "/mini/tables";
 						} else {
 							alert("예약 실패");
-						}
+							}
 						}
 					, error:function() {
 						alert("예약 에러");

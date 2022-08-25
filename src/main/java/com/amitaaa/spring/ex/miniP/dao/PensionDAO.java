@@ -24,7 +24,16 @@ public interface PensionDAO {
 			,@Param("state") String state
 			);
 	
+	//예약삭제
 	public int deleteBooking(@Param("id") int id);
+	
+	//예약조회
+	public Booking selectLookupBooking(
+			@Param("name") String name
+			, @Param("phoneNumber") String phoneNumber
+			);
+	
+	
 	
 	
 }

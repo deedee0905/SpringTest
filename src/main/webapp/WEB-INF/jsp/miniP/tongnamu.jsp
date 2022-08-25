@@ -113,13 +113,13 @@
 				<div class="box2 col-5">
 					<div class="text-white p-1">예약 확인</div>
 					<div class="d-flex">
-						<label class="text-white ml-3 mt-2 mr-3">이름</label> <input type="text" class="form-control col-8">
+						<label class="text-white ml-3 mt-2 mr-3">이름</label> <input type="text" class="form-control col-8" id="naemInput">
 					</div>
 					<div class="d-flex mt-2">
-						<label class="text-white ml-3 mt-2 mr-2">전화번호</label> <input type="text" class="form-control col-7">
+						<label class="text-white ml-3 mt-2 mr-2">전화번호</label> <input type="text" class="form-control col-7" id="phoneNumberInput">
 					</div>
 					
-					<button type="button" class="btn btn-success btn-sm mt-2" style="float: right;" >조회하기</button>
+					<button id="lookupBtn" type="button" class="btn btn-success btn-sm mt-2 " style="float: right;" >조회하기</button>
 					
 				</div>
 				
@@ -145,6 +145,57 @@
 	
 	
 	</div>
+
+	<script>
+	
+	$(document).ready(function() {
+		
+		$("#lookupBtn").on("click", function() {
+			
+			let name = $("#naemInput").val();
+			let phoneNumber = $("#phoneNumberInput").val();
+			
+			if(name == ""){
+				alert("이름을 입력하세요");
+				return;
+			}
+			
+			if(phoneNumber == ""){
+				alert("전화번호를 입력하세요");
+				return;
+			}
+			
+			$.ajax({
+				type:"post"
+				, url:"/mini/find"
+				, data:{"name":name, "phoneNumber":phoneNumber}
+				, success:function(data) {
+					
+					if(data.result == "fail"){
+						alert(" 조회된 결과가 없습니다.");
+					} else{
+						alert("이름 : " + data.data.name + "\n"
+								+ "날짜 : " + data.data.date.slice(0, 10) + "\n"
+								+ "숙박일수 : " + data.data.day + "\n"
+								+ "숙박인원 : " + data.data.headcount
+								+ "상태 : " + data.data.state);
+					} 
+					, error:function(){
+						alert("오류!");
+					}
+					}
+					
+					
+			});
+
+			
+		});
+		
+	});
+	
+	
+	</script>
+
 
 </body>
 </html>

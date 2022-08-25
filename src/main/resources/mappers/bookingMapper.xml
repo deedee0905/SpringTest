@@ -61,6 +61,25 @@
   			`id` = #{id}
   	
   	</delete>
+  	
+  	<select id="selectLookupBooking" parameterType="map" resultType="com.amitaaa.spring.ex.miniP.model.Booking">
+  		SELECT
+  			`id`
+  			,`name`
+  			,`headcount`
+  			,`day`
+  			,`date`
+  			,`phoneNumber`
+  			,`state`
+  			,`createdAt`
+  			,`updatedAt`
+  		FROM
+  			`booking`
+  		WHERE
+  			`name` = #{name}
+  			AND `phoneNumber` = #{phoneNumber}
+  		
+  	</select>
   
   
   </mapper>

@@ -33,9 +33,17 @@ public class PensionBO {
 		
 	}
 	
+	// 예약 삭제
 	public int deleteBooking(int id) {
 		return pensionDAO.deleteBooking(id);
 	}
+	
+	// 예약 조회
+	public Booking getBooking(String name, String phoneNumber){
+		return pensionDAO.selectLookupBooking(name, phoneNumber);
+	}
+	
+	
 	
 	
 }
